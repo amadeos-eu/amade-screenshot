@@ -56,6 +56,7 @@ class MainPresenterTest {
     private Path pictures;
     private MainPresenter presenter;
 
+    // --8<-- [start:fakes]
     @BeforeEach
     void setUp() {
         preferences = new ScreenshotPreferences(dir.resolve("screenshot.properties"));
@@ -86,6 +87,7 @@ class MainPresenterTest {
                 () -> quits++);
         presenter.start();
     }
+    // --8<-- [end:fakes]
 
     @Test
     void startsWithTheRememberedOptions() {
