@@ -7,10 +7,12 @@ import com.google.inject.Singleton;
 import eu.amadeos.apps.screenshot.repository.ImageFiles;
 import eu.amadeos.apps.screenshot.repository.ScreenshotPreferences;
 import eu.amadeos.apps.screenshot.service.CaptureService;
+import eu.amadeos.apps.screenshot.service.ClipboardHandoff;
 import eu.amadeos.apps.screenshot.service.KeepAlive;
 import eu.amadeos.apps.screenshot.service.RobotScreen;
 import eu.amadeos.apps.screenshot.service.Screen;
 import eu.amadeos.apps.screenshot.service.WindowList;
+import eu.amadeos.apps.screenshot.service.X11ClipboardHandoff;
 import eu.amadeos.apps.screenshot.service.X11WindowList;
 import eu.amadeos.apps.screenshot.ui.main.MainPresenter;
 import eu.amadeos.apps.screenshot.ui.main.MainWindow;
@@ -40,6 +42,7 @@ public final class ScreenshotModule extends AbstractModule {
         bind(CaptureService.class).in(Scopes.SINGLETON);
         bind(ImageFiles.class).in(Scopes.SINGLETON);
         bind(ScreenshotPreferences.class).in(Scopes.SINGLETON);
+        bind(ClipboardHandoff.class).to(X11ClipboardHandoff.class).in(Scopes.SINGLETON);
         bind(KeepAlive.class).in(Scopes.SINGLETON);
         bind(MainWindow.class).in(Scopes.SINGLETON);
     }
