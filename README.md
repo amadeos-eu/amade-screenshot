@@ -37,7 +37,7 @@ Java 25, Swing and Guice; start-up, theme and language come from `AmadeApplicati
 |---|---|
 | `bootstrap` | `AmadeScreenshotApplication` (window or command line), `ScreenshotModule`, `QuickShot` (one screenshot without the window) |
 | `domain` | `CaptureMode`, `Options`, `CommandLine`, `FileNames`, `ImageFormat`, `Selection` (the geometry of picking) |
-| `repository` | `ScreenshotPreferences` (`~/.config/amadeos/screenshot/screenshot.properties`), `PicturesFolder`, `ImageFiles` |
+| `repository` | `ScreenshotPreferences` (`~/.config/amadeos/screenshot/screenshot.properties`), `ImageFiles`; the pictures folder comes from `XdgDirectories.pictures()` in amade-commons |
 | `service` | `Screen` / `RobotScreen` (pixels via `java.awt.Robot`), `WindowList` / `X11WindowList` (window frames via JNA and libX11 `XQueryTree`), `CaptureService`, `Capture`, `KeepAlive` |
 | `ui` | `main`: window, presenter, actions, menus; `select`: the full-screen overlay for picking a window or an area; `icons` |
 

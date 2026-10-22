@@ -5,7 +5,6 @@ import com.google.inject.Provides;
 import com.google.inject.Scopes;
 import com.google.inject.Singleton;
 import eu.amadeos.apps.screenshot.repository.ImageFiles;
-import eu.amadeos.apps.screenshot.repository.PicturesFolder;
 import eu.amadeos.apps.screenshot.repository.ScreenshotPreferences;
 import eu.amadeos.apps.screenshot.service.CaptureService;
 import eu.amadeos.apps.screenshot.service.KeepAlive;
@@ -16,6 +15,7 @@ import eu.amadeos.apps.screenshot.service.X11WindowList;
 import eu.amadeos.apps.screenshot.ui.main.MainPresenter;
 import eu.amadeos.apps.screenshot.ui.main.MainWindow;
 import eu.amadeos.commons.app.Ui;
+import eu.amadeos.commons.config.XdgDirectories;
 import eu.amadeos.commons.desktop.DesktopLauncher;
 import eu.amadeos.commons.i18n.LocaleSettings;
 import eu.amadeos.commons.i18n.Messages;
@@ -48,16 +48,16 @@ public final class ScreenshotModule extends AbstractModule {
     @Singleton
     MainPresenter presenter(MainWindow window, Messages msg, LocaleSettings locales, ScreenshotPreferences preferences,
                             CaptureService captures, ImageFiles files, DesktopLauncher launcher,
-                            ExecutorService background, @Ui Executor ui, KeepAlive keepAlive) {
-        return new MainPresenter(window, msg, locales, preferences, captures, files, launcher, PicturesFolder.system(),
+                            XdgDirectories xdg, ExecutorService background, @Ui Executor ui, KeepAlive keepAlive) {
+        return new MainPresenter(window, msg, locales, preferences, captures, files, launcher, xdg.pictures(),
                 background, ui, MainPresenter.Pause.SLEEP, LocalDateTime::now, keepAlive, () -> System.exit(0));
     }
 
     @Provides
     @Singleton
-    QuickShot quickShot(CaptureService captures, ImageFiles files, Messages msg, ExecutorService background,
-                        @Ui Executor ui, KeepAlive keepAlive) {
-        return new QuickShot(captures, files, msg, PicturesFolder.system(), background, ui, MainPresenter.Pause.SLEEP,
+    QuickShot quickShot(CaptureService captures, ImageFiles files, Messages msg, XdgDirectories xdg,
+                        ExecutorService background, @Ui Executor ui, KeepAlive keepAlive) {
+        return new QuickShot(captures, files, msg, xdg.pictures(), background, ui, MainPresenter.Pause.SLEEP,
                 LocalDateTime::now, keepAlive, System.out, System::exit);
     }
 

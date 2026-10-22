@@ -25,6 +25,7 @@ class CaptureTest {
         return image;
     }
 
+    // --8<-- [start:crop]
     @Test
     void cropsInDesktopCoordinates() {
         Capture capture = new Capture(desktopImage(), DESKTOP, List.of());
@@ -36,6 +37,7 @@ class CaptureTest {
         assertEquals(Color.BLUE.getRGB(), corner.getRGB(9, 9));
         assertEquals(Optional.empty(), capture.crop(new Rectangle(500, 500, 5, 5)));
     }
+    // --8<-- [end:crop]
 
     @Test
     void theCropIsACopy() {

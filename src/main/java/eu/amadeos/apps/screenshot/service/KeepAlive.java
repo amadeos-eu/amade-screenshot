@@ -2,6 +2,7 @@ package eu.amadeos.apps.screenshot.service;
 
 import java.util.concurrent.CountDownLatch;
 
+// --8<-- [start:keep-alive]
 /**
  * Keeps the program running without a window. On X11 the clipboard holds no data: it only names the
  * program that has it, and a program that pastes asks that one. So after Copy the program has to stay until
@@ -33,3 +34,4 @@ public final class KeepAlive {
         return thread != null && released.getCount() > 0;
     }
 }
+// --8<-- [end:keep-alive]

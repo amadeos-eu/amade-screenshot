@@ -16,10 +16,12 @@ public class CaptureService {
         this.windows = windows;
     }
 
+    // --8<-- [start:capture]
     /** Call off the event dispatch thread: the X server is asked synchronously. */
     public Capture capture(boolean withWindows) {
         Rectangle bounds = screen.bounds();
         List<Rectangle> list = withWindows ? windows.topFirst() : List.of();
         return new Capture(screen.grab(bounds), bounds, list);
     }
+    // --8<-- [end:capture]
 }

@@ -26,6 +26,7 @@ public final class X11WindowList implements WindowList {
     private static final Logger LOG = LoggerFactory.getLogger(X11WindowList.class);
     private static final int IS_VIEWABLE = 2;
 
+    // --8<-- [start:library]
     /** The few libX11 calls needed here. */
     interface X11 extends Library {
         Pointer XOpenDisplay(String name);
@@ -45,7 +46,9 @@ public final class X11WindowList implements WindowList {
 
         ErrorHandler XSetErrorHandler(ErrorHandler handler);
     }
+    // --8<-- [end:library]
 
+    // --8<-- [start:error-handler]
     /**
      * A window can close between listing and asking for its size. The default handler would end the
      * program for that error; this one only ignores it.
@@ -53,6 +56,7 @@ public final class X11WindowList implements WindowList {
     interface ErrorHandler extends Callback {
         int callback(Pointer display, Pointer event);
     }
+    // --8<-- [end:error-handler]
 
     @Structure.FieldOrder({"x", "y", "width", "height", "border_width", "depth", "visual", "root", "c_class",
             "bit_gravity", "win_gravity", "backing_store", "backing_planes", "backing_pixel", "save_under",
@@ -76,6 +80,7 @@ public final class X11WindowList implements WindowList {
 
     private X11 x11;
 
+    // --8<-- [start:top-first]
     @Override
     public synchronized List<Rectangle> topFirst() {
         try {
@@ -98,7 +103,9 @@ public final class X11WindowList implements WindowList {
             x11.XCloseDisplay(display);
         }
     }
+    // --8<-- [end:top-first]
 
+    // --8<-- [start:windows]
     private List<Rectangle> windows(Pointer display) {
         NativeLongByReference root = new NativeLongByReference();
         NativeLongByReference parent = new NativeLongByReference();
@@ -125,4 +132,5 @@ public final class X11WindowList implements WindowList {
         Collections.reverse(bottomFirst);
         return bottomFirst;
     }
+    // --8<-- [end:windows]
 }
