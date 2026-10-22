@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 
 import java.util.concurrent.CountDownLatch;
 
+// --8<-- [start:keep-alive]
 /**
  * Keeps the program running without a window while its screenshot is on the clipboard. On X11 the clipboard
  * holds no data: it only names the program that has it, and a program that pastes asks that one. So after
@@ -52,3 +53,4 @@ public final class KeepAlive {
         return thread != null && released.getCount() > 0;
     }
 }
+// --8<-- [end:keep-alive]

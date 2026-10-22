@@ -12,7 +12,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Map;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -38,23 +37,6 @@ class RepositoryTest {
         assertEquals(Options.DEFAULT, new ScreenshotPreferences(file).options());
         Files.writeString(file, "delay=abc\n");
         assertEquals(Options.DEFAULT, new ScreenshotPreferences(file).options());
-    }
-
-    @Test
-    void picturesFolderFromTheUserDirs() throws IOException {
-        Path home = dir.resolve("anna");
-        assertEquals(home.resolve("Pictures"), PicturesFolder.of(home.toString(), Map.of()));
-        Files.createDirectories(home.resolve(".config"));
-        Files.writeString(home.resolve(".config/user-dirs.dirs"),
-                "# written by xdg-user-dirs-update\nXDG_DESKTOP_DIR=\"$HOME/Schreibtisch\"\nXDG_PICTURES_DIR=\"$HOME/Bilder\"\n");
-        assertEquals(home.resolve("Bilder"), PicturesFolder.of(home.toString(), Map.of()));
-        Path other = dir.resolve("config");
-        Files.createDirectories(other);
-        Files.writeString(other.resolve("user-dirs.dirs"), "XDG_PICTURES_DIR=\"/srv/pictures\"\n");
-        assertEquals(Path.of("/srv/pictures"),
-                PicturesFolder.of(home.toString(), Map.of("XDG_CONFIG_HOME", other.toString())));
-        // A relative XDG_CONFIG_HOME is ignored, as the specification says.
-        assertEquals(home.resolve("Bilder"), PicturesFolder.of(home.toString(), Map.of("XDG_CONFIG_HOME", "config")));
     }
 
     @Test

@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Optional;
 
+// --8<-- [start:capture]
 /**
  * The whole desktop at one moment, with the windows that were on it. Areas and windows are cut from this
  * frozen picture, so menus that close when the focus moves are still in it.
@@ -31,3 +32,4 @@ public record Capture(BufferedImage image, Rectangle bounds, List<Rectangle> win
         });
     }
 }
+// --8<-- [end:capture]

@@ -20,6 +20,7 @@ public final class AmadeScreenshotApplication {
         return version == null ? "dev" : version;
     }
 
+    // --8<-- [start:main]
     /** Without arguments the window; with options one screenshot at once (see {@link CommandLine}). */
     public static void main(String[] args) {
         CommandLine command;
@@ -45,4 +46,5 @@ public final class AmadeScreenshotApplication {
                     injector -> injector.getInstance(QuickShot.class).run(take), new ScreenshotModule());
         }
     }
+    // --8<-- [end:main]
 }

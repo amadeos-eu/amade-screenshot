@@ -32,6 +32,7 @@ public sealed interface CommandLine {
               --version        show the version
             """.formatted(Options.MAX_DELAY);
 
+    // --8<-- [start:records]
     /** No arguments: the window. */
     record OpenWindow() implements CommandLine {
     }
@@ -49,6 +50,7 @@ public sealed interface CommandLine {
      */
     record Take(CaptureMode mode, int delay, boolean copy, boolean save, Optional<Path> file) implements CommandLine {
     }
+    // --8<-- [end:records]
 
     /** @throws IllegalArgumentException with a message for the terminal */
     static CommandLine parse(List<String> args) {

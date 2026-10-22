@@ -24,9 +24,11 @@ repositories {
 dependencies {
     // Theme, Motif look, start-up and XDG helpers shared by all amadeOS applications.
     // With ../amade-commons checked out, settings.gradle builds that checkout instead (composite build).
-    implementation 'com.github.datazuul:amade-commons:352ff2bfb1'
+    implementation 'com.github.datazuul:amade-commons:4dafd1ac22'
+    // --8<-- [start:jna]
     // The list of windows on the screen comes from libX11.
     implementation 'net.java.dev.jna:jna:5.14.0'
+    // --8<-- [end:jna]
     runtimeOnly 'ch.qos.logback:logback-classic:1.5.18'
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'

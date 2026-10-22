@@ -21,6 +21,7 @@ public final class FileNames {
         return PREFIX + " " + STAMP.format(time) + "." + format.defaultExtension();
     }
 
+    // --8<-- [start:unused]
     /** A file in the folder that does not exist yet. */
     public static Path unused(Path folder, LocalDateTime time, ImageFormat format) {
         String base = PREFIX + " " + STAMP.format(time);
@@ -30,4 +31,5 @@ public final class FileNames {
         }
         return path;
     }
+    // --8<-- [end:unused]
 }
