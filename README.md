@@ -14,7 +14,7 @@
   - Because the picture is frozen first, open menus and tooltips stay in it.
 - **Delay**: none, 3, 5 or 10 seconds, e.g. to open a menu first. *Hide this window* takes the program's own window out of the picture.
 - **Save** (Ctrl+S) puts a PNG in your Pictures folder (`XDG_PICTURES_DIR`, e.g. `~/Bilder`, else `~/Pictures`) named after the date and time, `Screenshot 2026-10-22 14-05-33.png`; a second one in the same second gets `(2)`. **Save As** (Ctrl+Shift+S) asks for name and type (PNG or JPEG). Files are written to a temporary file first and then moved into place. **Open Folder** shows the folder of the last saved screenshot.
-- **Copy** (Ctrl+C) puts the picture on the clipboard. On X11 the clipboard only names the program that has the data, so a copied screenshot stays available while amade-screenshot runs. Closing the window does not lose it: the program stays in the background until another program puts something on the clipboard, the way `xclip` does.
+- **Copy** (Ctrl+C) puts the picture on the clipboard. On X11 the clipboard only names the program that has the data, so a copied screenshot stays available while amade-screenshot runs. Closing the window does not lose it: the program hands the picture to the desktop's clipboard manager (amadeOS's, or any that follows the freedesktop.org `CLIPBOARD_MANAGER` convention) and ends. Without a clipboard manager it stays in the background until another program puts something on the clipboard, the way `xclip` does.
 - **Command line**, e.g. for a key binding:
 
   ```
@@ -38,7 +38,7 @@ Java 25, Swing and Guice; start-up, theme and language come from `AmadeApplicati
 | `bootstrap` | `AmadeScreenshotApplication` (window or command line), `ScreenshotModule`, `QuickShot` (one screenshot without the window) |
 | `domain` | `CaptureMode`, `Options`, `CommandLine`, `FileNames`, `ImageFormat`, `Selection` (the geometry of picking) |
 | `repository` | `ScreenshotPreferences` (`~/.config/amadeos/screenshot/screenshot.properties`), `PicturesFolder`, `ImageFiles` |
-| `service` | `Screen` / `RobotScreen` (pixels via `java.awt.Robot`), `WindowList` / `X11WindowList` (window frames via JNA and libX11 `XQueryTree`), `CaptureService`, `Capture`, `KeepAlive` |
+| `service` | `Screen` / `RobotScreen` (pixels via `java.awt.Robot`), `WindowList` / `X11WindowList` (window frames via JNA and libX11 `XQueryTree`), `CaptureService`, `Capture`, `KeepAlive` and `ClipboardHandoff` / `X11ClipboardHandoff` (the copy goes to the clipboard manager) |
 | `ui` | `main`: window, presenter, actions, menus; `select`: the full-screen overlay for picking a window or an area; `icons` |
 
 Taking a screenshot: the presenter hides the window, waits the delay plus a moment for the desktop to redraw, then `CaptureService` reads the whole desktop and, for window and area, the list of top-level windows (top first). The overlay shows that frozen picture; the chosen rectangle is cut from it. The mouse pointer is not in the picture.
@@ -61,7 +61,6 @@ amade-screenshot is for X11 (the window list comes from libX11), so there is no 
 
 - Print, Alt+Print and Shift+Print in the amadeOS window manager, running `amade-screenshot --desktop`, `--window` and `--area`
 - The mouse pointer in the picture (XFixes), a window without its frame
-- A clipboard manager for the whole desktop, so that nothing copied is lost when a program ends
 
 ## License
 
