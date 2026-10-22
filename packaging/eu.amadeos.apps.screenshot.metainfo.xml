@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AppStream metadata of amade-screenshot, installed as /usr/share/metainfo/eu.amadeos.apps.screenshot.metainfo.xml.
+     amadeOS Software shows it for the installed package; a repository's appstream-generator reads it too. -->
+<component type="desktop-application">
+  <id>eu.amadeos.apps.screenshot</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>EUPL-1.2</project_license>
+
+  <name>amadeOS Screenshot</name>
+  <name xml:lang="de">amadeOS Bildschirmfoto</name>
+  <name xml:lang="fr">amadeOS Capture d'écran</name>
+  <name xml:lang="es">amadeOS Captura de pantalla</name>
+  <name xml:lang="it">amadeOS Schermata</name>
+
+  <summary>Take a picture of the desktop, a window or an area</summary>
+  <summary xml:lang="de">Ein Bild vom Desktop, einem Fenster oder einem Bereich aufnehmen</summary>
+  <summary xml:lang="fr">Prendre une image du bureau, d'une fenêtre ou d'une zone</summary>
+  <summary xml:lang="es">Tomar una imagen del escritorio, de una ventana o de un área</summary>
+  <summary xml:lang="it">Catturare un'immagine del desktop, di una finestra o di un'area</summary>
+
+  <description>
+    <p>amade-screenshot is the screenshot tool of the amadeOS desktop: take the whole desktop, a single window with its frame or an area drawn with the mouse, after a delay if you like, and save the picture in your Pictures folder or copy it to the clipboard.</p>
+    <p xml:lang="de">amade-screenshot ist das Bildschirmfoto-Werkzeug des amadeOS-Desktops: den ganzen Desktop, ein einzelnes Fenster mit Rahmen oder einen mit der Maus gezogenen Bereich aufnehmen, auf Wunsch mit Verzögerung, und das Bild im Bilderordner speichern oder in die Zwischenablage kopieren.</p>
+    <p xml:lang="fr">amade-screenshot est l'outil de capture d'écran du bureau amadeOS : capturer tout le bureau, une seule fenêtre avec son cadre ou une zone tracée à la souris, avec un délai si vous le souhaitez, puis enregistrer l'image dans le dossier Images ou la copier dans le presse-papiers.</p>
+    <p xml:lang="es">amade-screenshot es la herramienta de capturas del escritorio amadeOS: capturar todo el escritorio, una sola ventana con su marco o un área trazada con el ratón, con retraso si se desea, y guardar la imagen en la carpeta Imágenes o copiarla al portapapeles.</p>
+    <p xml:lang="it">amade-screenshot è lo strumento per le schermate del desktop amadeOS: catturare tutto il desktop, una sola finestra con la sua cornice o un'area tracciata con il mouse, con un ritardo se si vuole, e salvare l'immagine nella cartella Immagini o copiarla negli appunti.</p>
+    <ul>
+      <li>Whole desktop, single window or area</li>
+      <li xml:lang="de">Ganzer Desktop, einzelnes Fenster oder Bereich</li>
+      <li xml:lang="fr">Tout le bureau, une seule fenêtre ou une zone</li>
+      <li xml:lang="es">Todo el escritorio, una sola ventana o un área</li>
+      <li xml:lang="it">Tutto il desktop, una sola finestra o un'area</li>
+      <li>Delay of 3, 5 or 10 seconds, e.g. to open a menu first</li>
+      <li xml:lang="de">Verzögerung von 3, 5 oder 10 Sekunden, etwa um vorher ein Menü zu öffnen</li>
+      <li xml:lang="fr">Délai de 3, 5 ou 10 secondes, par exemple pour ouvrir d'abord un menu</li>
+      <li xml:lang="es">Retraso de 3, 5 o 10 segundos, por ejemplo para abrir antes un menú</li>
+      <li xml:lang="it">Ritardo di 3, 5 o 10 secondi, ad esempio per aprire prima un menu</li>
+      <li>Saved as PNG under the date and time, or as PNG or JPEG under a name of your choice</li>
+      <li xml:lang="de">Als PNG unter Datum und Uhrzeit gespeichert, oder als PNG oder JPEG unter einem eigenen Namen</li>
+      <li xml:lang="fr">Enregistrée en PNG sous la date et l'heure, ou en PNG ou JPEG sous le nom de votre choix</li>
+      <li xml:lang="es">Guardada como PNG con la fecha y la hora, o como PNG o JPEG con el nombre que elija</li>
+      <li xml:lang="it">Salvata come PNG con data e ora, oppure come PNG o JPEG con un nome a scelta</li>
+      <li>Copy to the clipboard, which keeps the picture also after closing the window</li>
+      <li xml:lang="de">In die Zwischenablage kopieren, die das Bild auch nach dem Schließen des Fensters behält</li>
+      <li xml:lang="fr">Copie dans le presse-papiers, qui garde l'image même après la fermeture de la fenêtre</li>
+      <li xml:lang="es">Copia al portapapeles, que conserva la imagen también después de cerrar la ventana</li>
+      <li xml:lang="it">Copia negli appunti, che conservano l'immagine anche dopo la chiusura della finestra</li>
+      <li>Command line options for key bindings</li>
+      <li xml:lang="de">Kommandozeilen-Optionen für Tastenkürzel</li>
+      <li xml:lang="fr">Options de ligne de commande pour les raccourcis clavier</li>
+      <li xml:lang="es">Opciones de línea de comandos para atajos de teclado</li>
+      <li xml:lang="it">Opzioni da riga di comando per le scorciatoie da tastiera</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">amade-screenshot.desktop</launchable>
+  <icon type="stock">amade-screenshot</icon>
+  <categories>
+    <category>Graphics</category>
+    <category>Utility</category>
+  </categories>
+
+  <url type="homepage">https://github.com/datazuul/amade-screenshot</url>
+  <url type="bugtracker">https://github.com/datazuul/amade-screenshot/issues</url>
+  <developer id="eu.amadeos">
+    <name>amadeOS Project</name>
+  </developer>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>A terminal window, taken and saved in the Pictures folder</caption>
+      <caption xml:lang="de">Ein Terminalfenster, aufgenommen und im Bilderordner gespeichert</caption>
+      <caption xml:lang="fr">Une fenêtre de terminal, capturée et enregistrée dans le dossier Images</caption>
+      <caption xml:lang="es">Una ventana de terminal, capturada y guardada en la carpeta Imágenes</caption>
+      <caption xml:lang="it">Una finestra di terminale, catturata e salvata nella cartella Immagini</caption>
+      <image>https://raw.githubusercontent.com/datazuul/amade-screenshot/main/docs/screenshots/amade-screenshot.png</image>
+    </screenshot>
+  </screenshots>
+
+  <provides>
+    <binary>amade-screenshot</binary>
+  </provides>
+  <content_rating type="oars-1.1"/>
+</component>

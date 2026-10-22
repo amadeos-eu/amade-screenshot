@@ -1,0 +1,24 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=amadeOS Screenshot
+Name[de]=amadeOS Bildschirmfoto
+Name[fr]=amadeOS Capture d'écran
+Name[es]=amadeOS Captura de pantalla
+Name[it]=amadeOS Schermata
+GenericName=Screenshot Tool
+GenericName[de]=Bildschirmfoto-Werkzeug
+GenericName[fr]=Outil de capture d'écran
+GenericName[es]=Herramienta de captura de pantalla
+GenericName[it]=Strumento per schermate
+Comment=Take a picture of the desktop, a window or an area
+Comment[de]=Ein Bild vom Desktop, einem Fenster oder einem Bereich aufnehmen
+Comment[fr]=Prendre une image du bureau, d'une fenêtre ou d'une zone
+Comment[es]=Tomar una imagen del escritorio, de una ventana o de un área
+Comment[it]=Catturare un'immagine del desktop, di una finestra o di un'area
+Icon=amade-screenshot
+Exec=/usr/bin/amade-screenshot
+Terminal=false
+Categories=Graphics;Utility;
+Keywords=screenshot;screen;capture;snapshot;print;window;area;clipboard;
+StartupNotify=true
