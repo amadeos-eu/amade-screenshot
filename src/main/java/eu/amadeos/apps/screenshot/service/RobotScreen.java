@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 public final class RobotScreen implements Screen {
     private Robot robot;
 
+    // --8<-- [start:bounds]
     @Override
     public Rectangle bounds() {
         Rectangle all = new Rectangle();
@@ -23,7 +24,9 @@ public final class RobotScreen implements Screen {
         }
         return all;
     }
+    // --8<-- [end:bounds]
 
+    // --8<-- [start:grab]
     @Override
     public synchronized BufferedImage grab(Rectangle area) {
         try {
@@ -33,4 +36,5 @@ public final class RobotScreen implements Screen {
         }
         return robot.createScreenCapture(area);
     }
+    // --8<-- [end:grab]
 }

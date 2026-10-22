@@ -82,6 +82,7 @@ public final class SelectionCanvas extends JComponent {
         return new Point(component.x + capture.bounds().x, component.y + capture.bounds().y);
     }
 
+    // --8<-- [start:mouse]
     void pressed(Point at) {
         if (mode == CaptureMode.AREA) {
             start = at;
@@ -111,6 +112,7 @@ public final class SelectionCanvas extends JComponent {
     void moved(Point at) {
         if (mode == CaptureMode.WINDOW) mark(Selection.windowAt(capture.windows(), at).orElse(null));
     }
+    // --8<-- [end:mouse]
 
     /** Escape or the right mouse button. */
     public void cancel() {
@@ -138,6 +140,7 @@ public final class SelectionCanvas extends JComponent {
         return capture.bounds().getSize();
     }
 
+    // --8<-- [start:paint]
     @Override
     protected void paintComponent(Graphics graphics) {
         Graphics2D g = (Graphics2D) graphics.create();
@@ -165,11 +168,14 @@ public final class SelectionCanvas extends JComponent {
             g.dispose();
         }
     }
+    // --8<-- [end:paint]
 
+    // --8<-- [start:accent]
     /** The theme's title-bar colour, which the desktop uses for "selected". */
     private static Color accent() {
         return AmadeUI.theme() != null ? AmadeUI.theme().activeTitleBg() : new Color(0x4a6fa5);
     }
+    // --8<-- [end:accent]
 
     private void label(Graphics2D g, String text, Rectangle lit, Color accent) {
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);

@@ -104,6 +104,7 @@ class MainPresenterTest {
         assertEquals(presenter.options(), new ScreenshotPreferences(dir.resolve("screenshot.properties")).options());
     }
 
+    // --8<-- [start:take]
     @Test
     void theDesktopIsTakenWithTheWindowOutOfTheWay() {
         presenter.take();
@@ -118,6 +119,7 @@ class MainPresenterTest {
         assertEquals("Screenshot of 320 × 200 pixels.", view.lastStatus());
         assertEquals(new MainView.Commands(true, false, false), view.commands);
     }
+    // --8<-- [end:take]
 
     @Test
     void theDelayCountsDown() {
@@ -241,6 +243,7 @@ class MainPresenterTest {
         assertTrue(executor.isIdle(), "nothing happens after closing");
     }
 
+    // --8<-- [start:clipboard]
     @Test
     void aCopiedShotOutlivesTheWindow() {
         presenter.take();
@@ -258,6 +261,7 @@ class MainPresenterTest {
         assertEquals(1, quits);
         assertFalse(keepAlive.isHolding());
     }
+    // --8<-- [end:clipboard]
 
     @Test
     void losingTheClipboardWhileOpenChangesNothingVisible() {

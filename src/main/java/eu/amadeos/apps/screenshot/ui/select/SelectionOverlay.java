@@ -53,6 +53,7 @@ public final class SelectionOverlay extends JFrame {
         setBounds(capture.bounds());
     }
 
+    // --8<-- [start:show]
     /** Shows the overlay; {@code done} gets the chosen rectangle in desktop coordinates, or nothing. */
     public static SelectionOverlay show(Capture capture, CaptureMode mode, String hint,
                                         Consumer<Optional<Rectangle>> done) {
@@ -68,14 +69,17 @@ public final class SelectionOverlay extends JFrame {
         overlay.canvas.requestFocusInWindow();
         return overlay;
     }
+    // --8<-- [end:show]
 
     SelectionCanvas canvas() {
         return canvas;
     }
 
+    // --8<-- [start:close]
     private void close() {
         GraphicsDevice device = getGraphicsConfiguration().getDevice();
         if (device.getFullScreenWindow() == this) device.setFullScreenWindow(null);
         dispose();
     }
+    // --8<-- [end:close]
 }

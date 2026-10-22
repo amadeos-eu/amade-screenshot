@@ -8,6 +8,7 @@ import eu.amadeos.apps.screenshot.domain.Options;
 import eu.amadeos.apps.screenshot.service.Capture;
 import eu.amadeos.apps.screenshot.ui.icons.ScreenshotGlyph;
 import eu.amadeos.apps.screenshot.ui.select.SelectionOverlay;
+import eu.amadeos.commons.desktop.ImageSelection;
 import eu.amadeos.commons.i18n.LocaleSettings;
 import eu.amadeos.commons.i18n.Messages;
 import eu.amadeos.commons.i18n.Mnemonics;
@@ -266,6 +267,7 @@ public final class MainWindow extends JFrame implements MainView {
         if (actions != null) actions.update(commands);
     }
 
+    // --8<-- [start:hide]
     @Override
     public void hideForCapture() {
         EdtExecutor.requireEdt();
@@ -284,6 +286,7 @@ public final class MainWindow extends JFrame implements MainView {
         EdtExecutor.requireEdt();
         SelectionOverlay.show(capture, mode, msg.get("select." + mode.key()), done);
     }
+    // --8<-- [end:hide]
 
     @Override
     public Optional<SaveTarget> chooseSavePath(Path folder, String suggestedName) {

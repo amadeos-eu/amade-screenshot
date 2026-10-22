@@ -7,9 +7,9 @@ import eu.amadeos.apps.screenshot.repository.ImageFiles;
 import eu.amadeos.apps.screenshot.service.Capture;
 import eu.amadeos.apps.screenshot.service.CaptureService;
 import eu.amadeos.apps.screenshot.service.KeepAlive;
-import eu.amadeos.apps.screenshot.ui.main.ImageSelection;
 import eu.amadeos.apps.screenshot.ui.main.MainPresenter.Pause;
 import eu.amadeos.apps.screenshot.ui.select.SelectionOverlay;
+import eu.amadeos.commons.desktop.ImageSelection;
 import eu.amadeos.commons.i18n.Messages;
 
 import java.awt.Toolkit;
@@ -55,6 +55,7 @@ public final class QuickShot {
         this.exit = exit;
     }
 
+    // --8<-- [start:run]
     public void run(CommandLine.Take take) {
         background.execute(() -> {
             try {
@@ -77,7 +78,9 @@ public final class QuickShot {
             }
         });
     }
+    // --8<-- [end:run]
 
+    // --8<-- [start:deliver]
     private void deliver(CommandLine.Take take, BufferedImage picture) {
         background.execute(() -> {
             if (take.save() || take.file().isPresent()) {
@@ -105,6 +108,7 @@ public final class QuickShot {
             });
         });
     }
+    // --8<-- [end:deliver]
 
     private void fail(String message) {
         System.err.println("amade-screenshot: " + message);

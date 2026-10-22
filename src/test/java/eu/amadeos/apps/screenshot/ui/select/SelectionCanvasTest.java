@@ -59,6 +59,7 @@ class SelectionCanvasTest {
         });
     }
 
+    // --8<-- [start:window]
     @Test
     void theWindowUnderThePointerIsLitAndPicked() throws Exception {
         OnEdt.run(() -> {
@@ -76,6 +77,7 @@ class SelectionCanvasTest {
             assertEquals(List.of(Optional.of(new Rectangle(-100, 0, 200, 200))), results);
         });
     }
+    // --8<-- [end:window]
 
     @Test
     void cancelling() throws Exception {

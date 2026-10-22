@@ -13,17 +13,20 @@ public final class Selection {
     private Selection() {
     }
 
+    // --8<-- [start:between]
     /** The rectangle between two corners, whichever way the mouse was dragged; both corners are inside. */
     public static Rectangle between(Point start, Point end) {
         int x = Math.min(start.x, end.x);
         int y = Math.min(start.y, end.y);
         return new Rectangle(x, y, Math.abs(end.x - start.x) + 1, Math.abs(end.y - start.y) + 1);
     }
+    // --8<-- [end:between]
 
     public static boolean isLargeEnough(Rectangle area) {
         return area.width >= MIN_SIZE && area.height >= MIN_SIZE;
     }
 
+    // --8<-- [start:window-at]
     /**
      * The window under the point.
      *
@@ -35,6 +38,7 @@ public final class Selection {
         }
         return Optional.empty();
     }
+    // --8<-- [end:window-at]
 
     /** The part of the area on the desktop; empty if none. */
     public static Optional<Rectangle> clip(Rectangle area, Rectangle desktop) {

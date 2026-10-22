@@ -122,6 +122,7 @@ public class MainPresenter {
 
     // ---------------------------------------------------------------- taking
 
+    // --8<-- [start:take]
     public void take() {
         if (taking || closed) return;
         taking = true;
@@ -147,7 +148,9 @@ public class MainPresenter {
             }
         });
     }
+    // --8<-- [end:take]
 
+    // --8<-- [start:captured]
     private void captured(CaptureMode mode, Capture capture) {
         if (!mode.needsSelection()) {
             finished(capture.image());
@@ -159,6 +162,7 @@ public class MainPresenter {
             else cancelled();
         });
     }
+    // --8<-- [end:captured]
 
     private void finished(BufferedImage image) {
         taking = false;
@@ -186,12 +190,14 @@ public class MainPresenter {
 
     // ---------------------------------------------------------------- saving and copying
 
+    // --8<-- [start:save]
     /** Saves in the pictures folder under the date and time, without asking. */
     public void save() {
         if (shot == null) return;
         // The free name is looked for just before writing, so that two quick saves get two names.
         write(() -> FileNames.unused(picturesFolder, clock.get(), ImageFormat.PNG), ImageFormat.PNG);
     }
+    // --8<-- [end:save]
 
     public void saveAs() {
         if (shot == null) return;
@@ -200,6 +206,7 @@ public class MainPresenter {
                 .ifPresent(target -> write(target::path, target.format()));
     }
 
+    // --8<-- [start:write]
     private void write(Supplier<Path> target, ImageFormat format) {
         BufferedImage picture = shot;
         background.execute(() -> {
@@ -221,14 +228,18 @@ public class MainPresenter {
             });
         });
     }
+    // --8<-- [end:write]
 
+    // --8<-- [start:copy]
     public void copy() {
         if (shot == null) return;
         view.copyToClipboard(shot, () -> ui.execute(this::clipboardLost));
         ownsClipboard = true;
         view.showStatus(msg.get("status.copied"));
     }
+    // --8<-- [end:copy]
 
+    // --8<-- [start:clipboard-lost]
     private void clipboardLost() {
         ownsClipboard = false;
         if (closed) {
@@ -236,6 +247,7 @@ public class MainPresenter {
             quit.run();
         }
     }
+    // --8<-- [end:clipboard-lost]
 
     public boolean ownsClipboard() {
         return ownsClipboard;
@@ -273,6 +285,7 @@ public class MainPresenter {
         view.showAbout();
     }
 
+    // --8<-- [start:exit]
     /**
      * Closes the window. While a copied screenshot is on the clipboard the program stays in the background,
      * so that it can still be pasted, and ends when another program takes the clipboard over.
@@ -287,6 +300,7 @@ public class MainPresenter {
             quit.run();
         }
     }
+    // --8<-- [end:exit]
 
     public boolean isClosed() {
         return closed;
