@@ -1,6 +1,6 @@
 # amade-screenshot
 
-**amade-screenshot** is the screenshot tool of the [amadeOS](https://github.com/datazuul/amadeos) desktop: take the whole desktop, a single window or an area drawn with the mouse, after a delay if you like, and save the picture or copy it to the clipboard. Built like the other amadeOS applications.
+**amade-screenshot** is the screenshot tool of the [amadeOS](https://github.com/amadeos-eu/amadeos) desktop: take the whole desktop, a single window or an area drawn with the mouse, after a delay if you like, and save the picture or copy it to the clipboard. Built like the other amadeOS applications.
 
 ![License](https://img.shields.io/badge/license-EUPL--1.2-blue)
 ![Java](https://img.shields.io/badge/Java-25-orange)
@@ -27,7 +27,7 @@
 
   The path of a saved file is printed; the exit status is 1 if the screenshot was cancelled or failed.
 - Five languages (English, Deutsch, Français, Español, Italiano), following the amadeOS desktop language; *Options → Language* overrides it.
-- Theme colours, Motif look and 3D toolbar buttons from [amade-commons](https://github.com/datazuul/amade-commons). The toolbar icons are drawn in Java2D.
+- Theme colours, Motif look and 3D toolbar buttons from [amade-commons](https://github.com/amadeos-eu/amade-commons). The toolbar icons are drawn in Java2D.
 
 ## Architecture
 

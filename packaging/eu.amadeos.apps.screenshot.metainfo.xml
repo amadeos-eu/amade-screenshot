@@ -60,8 +60,8 @@
     <category>Utility</category>
   </categories>
 
-  <url type="homepage">https://github.com/datazuul/amade-screenshot</url>
-  <url type="bugtracker">https://github.com/datazuul/amade-screenshot/issues</url>
+  <url type="homepage">https://github.com/amadeos-eu/amade-screenshot</url>
+  <url type="bugtracker">https://github.com/amadeos-eu/amade-screenshot/issues</url>
   <developer id="eu.amadeos">
     <name>amadeOS Project</name>
   </developer>
@@ -73,7 +73,7 @@
       <caption xml:lang="fr">Une fenêtre de terminal, capturée et enregistrée dans le dossier Images</caption>
       <caption xml:lang="es">Una ventana de terminal, capturada y guardada en la carpeta Imágenes</caption>
       <caption xml:lang="it">Una finestra di terminale, catturata e salvata nella cartella Immagini</caption>
-      <image>https://raw.githubusercontent.com/datazuul/amade-screenshot/main/docs/screenshots/amade-screenshot.png</image>
+      <image>https://raw.githubusercontent.com/amadeos-eu/amade-screenshot/main/docs/screenshots/amade-screenshot.png</image>
     </screenshot>
   </screenshots>
 
