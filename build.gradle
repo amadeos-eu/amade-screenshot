@@ -89,8 +89,12 @@ tasks.register('deb') {
         }
 
         def launcher = new File(binDir, 'amade-screenshot')
+        // The options all amadeOS programs share (heap, garbage collector) come first from the argument file
+        // amadeos-session installs; the options after it win over them.
         launcher.text = """#!/bin/sh
-exec /usr/bin/java -jar /opt/amade-screenshot/amade-screenshot.jar "\$@"
+OPTIONS=/etc/amadeos/java/app.options
+[ -r "\$OPTIONS" ] || OPTIONS=/dev/null
+exec /usr/bin/java "@\$OPTIONS" -jar /opt/amade-screenshot/amade-screenshot.jar "\$@"
 """
         launcher.setExecutable(true, false)
 
@@ -119,7 +123,7 @@ Version: ${debVersion}
 Section: graphics
 Priority: optional
 Architecture: all
-Depends: openjdk-25-jre | java-runtime (>= 25), libx11-6
+Depends: openjdk-25-jre | java-runtime (>= 25), amadeos-java-options, libx11-6
 Maintainer: amadeOS Project <developers@datazuul.com>
 Description: Screenshot tool for amadeOS
  Takes a picture of the whole desktop, of one window or of an area drawn
